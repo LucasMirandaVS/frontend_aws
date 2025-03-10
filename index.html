@@ -1,10 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Sorteio Automático</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sorteio Automatico</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    input, button {
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
+      font-size: 1rem;
+    }
+
+    #resultado {
+      font-size: 2rem;
+      color: #007acc;
+      margin-top: 1rem;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <h1>Essa é a página de sorteio</h1>
-    <p>Agora os  sorteios vão ficar automáticos</p>
+  <div class="container">
+    <h1>Sorteio Automatico</h1>
+    <p>Informe o intervalo numerico:</p>
+    <input type="number" id="min" placeholder="Valor mínimo" />
+    <input type="number" id="max" placeholder="Valor máximo" />
+    <br />
+    <button onclick="sortear()">Sortear</button>
+    <div id="resultado"></div>
+  </div>
+
+  <footer>
+    Código disponível no GitHub:
+    <a href="https://github.com/LucasMirandaVS/frontend_aws" target="_blank">
+      github.com/LucasMirandaVS/frontend_aws
+    </a>
+  </footer>
+
+  <script>
+    function sortear() {
+      const min = parseInt(document.getElementById('min').value);
+      const max = parseInt(document.getElementById('max').value);
+      const resultadoEl = document.getElementById('resultado');
+
+      if (isNaN(min) || isNaN(max) || min >= max) {
+        resultadoEl.innerHTML = "Por favor, insira um intervalo valido.";
+        return;
+      }
+
+      const sorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+      resultadoEl.innerHTML = `Numero sorteado: <strong>${sorteado}</strong>`;
+    }
+  </script>
 </body>
 </html>
