@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Sorteio Automatico</title>
+    <title>Sorteio Automático</title>
     <!-- Estilização da página -->
     <style>
     h1 {
@@ -59,21 +59,21 @@
                 redirect: 'follow'
             };
 
-            fetch("https://4i5nib20t1.execute-api.ap-south-1.amazonaws.com/prod/", requestOptions)
+            fetch("YOUR_API_GATEWAY_ENDPOINT", requestOptions)
             .then(response => response.text())
-            .then(result => alert("Numero sorteado: " + JSON.parse(result).numeroSorteado))
+            .then(result => alert("Número sorteado: " + JSON.parse(result).numeroSorteado))
             .catch(error => console.log('error', error));
         }
     </script>
 </head>
 <body>
-    <h1>Bem-vindo ao Sorteio Automatico feito pelo Lucas!</h1>
+    <h1>Bem-vindo ao Sorteio Automático!</h1>
     <form>
         <label>Nome do sorteio:</label>
         <input type="text" id="nomeSorteio"><br>
-        <label>Numero Minimo:</label>
+        <label>Número Mínimo:</label>
         <input type="number" id="numMin"><br>
-        <label>Numero Maximo:</label>
+        <label>Número Máximo:</label>
         <input type="number" id="numMax"><br>
         <!-- Botão que chama a função realizarSorteio -->
         <button type="button" onclick="realizarSorteio(
